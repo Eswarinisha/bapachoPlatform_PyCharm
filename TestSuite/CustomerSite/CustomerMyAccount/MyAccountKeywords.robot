@@ -13,7 +13,7 @@ Click_MyAccount
 Edit_Mydetails
         SeleniumLibrary.Input Text    ${fill_in_firstname}    ${GuestUser_${Language}}[0]
         SeleniumLibrary.Input Text    ${fill_in_lastname}    ${GuestUser_${Language}}[1]
-        SeleniumLibrary.Input Text    ${fill_in_address}    ${GuestUser_${Language}}[3]
+        SeleniumLibrary.Input Text    #{fill_in_address_MyAccount}   ${GuestUser_${Language}}[3]
        # SeleniumLibrary.Input Text    columns[addressLine2]    ${GuestUser_${Language}}[4]
         SeleniumLibrary.Input Text      ${fill_in_postal}       ${GuestUser_${Language}}[5]
         SeleniumLibrary.Input Text     ${fill_in_city}    ${GuestUser_${Language}}[6]
@@ -77,3 +77,7 @@ Click_logout
         Capture Element Screenshot    ${logout}
         Click Element    ${logout}
 
+Add_bakery_to_favourites
+        Click Element   ${MarkFavouriteBakery}
+        BuiltIn.Sleep    2
+        Capture Page Screenshot

@@ -96,3 +96,25 @@ Select_a_bakery_from_list
         Click Element    ${choosebakery}
          BuiltIn.Sleep    2
         Capture Page Screenshot
+
+Type_To_Search_bakery_and_suggest_a_shop
+        Input Text    ${Searchbakeryinputfield}    ${SuggestShopName}
+        Capture Page Screenshot
+        Click Element          ${search_button}
+        BuiltIn.Sleep    2
+        Page Should Contain Element     ${btn_SuggestShop}
+        Click Element        ${btn_SuggestShop}
+        BuiltIn.Sleep    2
+        Capture Page Screenshot
+        Input Text   ${Shop Name}      ${SuggestShopName}
+        BuiltIn.Sleep    2
+        Input Text   ${Why_You_want_this_baker}     ${Why_You_want_this_baker_comment}
+        BuiltIn.Sleep    2
+        Input Text   ${SuggestShop_mail}        ${RegisterCredentialsCheckout}[0]
+        Click Element       ${Submit}
+        BuiltIn.Sleep    2
+        Page Should Contain Element     //img[@src='/img/original/thankyou-consumer.svg']
+        Click Element       ${HomePageButton}
+        BuiltIn.Sleep    2
+
+

@@ -2,15 +2,15 @@
 Library  SeleniumLibrary
 
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Variables.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Credentials.robot
+Resource    CustomerVariables.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CustomerLogin/CustomerLoginKeywords.robot
-Resource    ${CURDIR}/CheckoutKeywords.robot
+Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CheckoutFunctionalities/CheckoutKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CartFunctionalities/CartKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CustomerMyAccount/MyAccountKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/SearchShops/SearchShopsKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/ShopPage/ShopPageKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/HomePage/HomePageKeywords.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/Checkout/CouponsKeywords.robot
+Resource    CouponsKeywords.robot
 
 
 *** Test Cases ***
@@ -37,7 +37,6 @@ Test case 38
         PDP_Add_Delete_product_Quantity
         Capture Page Screenshot
         Close Browser
-
 
 Test case 39
     #User must be able to directly type the quantity of product in the box(cart level)
@@ -235,7 +234,7 @@ Test case 50
         Close Browser
 
 
-Test case 51
+Test_case_51
     #Pickup +  Online payment failure(clicked back button) + File complaint using Support form
         Open_MultishopHomePage
         Click_login
@@ -251,3 +250,4 @@ Test case 51
         Click_back_while_Online_pay
         SupportForm
         Close Browser
+        

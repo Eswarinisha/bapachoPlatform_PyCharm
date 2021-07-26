@@ -44,7 +44,32 @@ Add_incorrect_coupon
         Sleep    2
         Click Element    ${btn_Checkout}
 
-Creates_account_and_Add_Coupon_in_cart
+Customer_Login_for_coupon
+         Sleep    2
+        Input Text    ${discountCode}    PERC10
+        Capture Page Screenshot
+        Sleep    2
+        Capture Page Screenshot
+        Click Element    ${btn_Applydiscountcode}
+        Sleep    5
+        Click Element   ${btn_AlreadyhaveanAccount}
+
+Add_coupon_Again_for_loggedin_customer
+
+        Click Element   ${carticon}
+        Sleep    2
+        Input Text    ${discountCode}    PERC10
+        Capture Page Screenshot
+        Sleep    2
+        Click Element    ${btn_Applydiscountcode}
+        Sleep    2
+        Click Element    ${OK}
+        Sleep    2
+
+
+
+
+Creates_account_and_Add_Coupon_in_cart_with_existing_account
         Sleep    2
         Input Text    ${discountCode}    PERC10
         Capture Page Screenshot
@@ -52,6 +77,29 @@ Creates_account_and_Add_Coupon_in_cart
         Capture Page Screenshot
         Click Element    ${btn_Applydiscountcode}
         Sleep    5
+        Input Text    ${couponfirstname}    Nisha
+        Input Text    ${couponlastname}     Bala
+        Input Text    ${couponguestemail}    ${couponmailid}
+        Sleep   2
+        Page Should Contain Element     ${couponpassword}
+        Input Text    ${inputpassword}    ${RegisterCredentialsnew}[3]
+        Sleep    2
+        Click Element    ${couponProceedbutton}
+        Sleep    2
+        Click Element    ${OK}
+        Sleep    2
+#       Capture Page Screenshot
+#       Click Element    ${carticon}
+#       Click Element    ${btn_Checkout}
+
+Creates_account_and_Add_Coupon_in_cart
+#        Sleep    2
+#        Input Text    ${discountCode}    PERC10
+#        Capture Page Screenshot
+#        Sleep    2
+#        Capture Page Screenshot
+#        Click Element    ${btn_Applydiscountcode}
+#        Sleep    5
         Input Text    ${firstname}     Nisha
         Input Text    ${lastname}    Bala
         Input Text    ${couponguestemail}    ${couponmailid}
@@ -67,11 +115,18 @@ Creates_account_and_Add_Coupon_in_cart
 
 Guest_user_adds_coupon_in_checkout_page
         Sleep    2
-        Input Text    ${discountCode}    PERC10
+        Input Text    ${discountCode}    NiSh
         Capture Page Screenshot
         Click Element    ${btn_Applydiscountcode}
-         Sleep    2
-        Click Element    ${OK}
         Sleep    2
+        Input Text    ${couponguestemail}    ${couponmailid}
+        Click Element   ${applyForNewsletter}
+        Click Element    ${couponProceedbutton}
+        Sleep    2
+        Click Element    ${OK}
+        Sleep   2
+        Click Element   ${carticon}
+        Sleep   2
+        Click Element    ${btn_Checkout}
 
 

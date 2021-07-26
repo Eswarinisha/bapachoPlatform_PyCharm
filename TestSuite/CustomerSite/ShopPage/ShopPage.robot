@@ -3,14 +3,14 @@ Library  SeleniumLibrary
 
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Variables.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Credentials.robot
-Resource    ${CURDIR}/CustomerLoginKeywords.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/Checkout/CheckoutKeywords.robot
+Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CustomerLogin/CustomerLoginKeywords.robot
+Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CheckoutFunctionalities/CheckoutKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CartFunctionalities/CartKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CustomerMyAccount/MyAccountKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/SearchShops/SearchShopsKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/ShopPage/ShopPageKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/HomePage/HomePageKeywords.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/Checkout/CouponsKeywords.robot
+Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CheckoutFunctionalities/CouponsKeywords.robot
 
 
 *** Test Cases ***
@@ -28,7 +28,7 @@ Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestS
         # Capture show more information
         # Close Browser
 
-Test case 32
+Test case 1
     #Show Bakery Information
         Open_MultishopHomePage
         Click_bakeries
@@ -39,7 +39,7 @@ Test case 32
         View_shop_page_information
         Close Browser
 
-Test case 33
+Test case 2
     #Phone number under other information must be clickable
 
         Open_MultishopHomePage
@@ -50,7 +50,7 @@ Test case 33
         Click_bakery_phone_number
         Close Browser
 
-Test case 34
+Test case 3
     #Filter products by product category
         Open_MultishopHomePage
         Click_bakeries
@@ -60,7 +60,7 @@ Test case 34
         Filter_Products_by_Category
         Close Browser
 
-Test case 35
+Test case 4
     #On clicking on "+" product must get added to cart(product level)
         Open_MultishopHomePage
         Click_bakeries
@@ -71,7 +71,7 @@ Test case 35
         Capture Page Screenshot
         Close Browser
 
-Test case 36
+Test case 5
     #Click product and view Product information
         Open_MultishopHomePage
         Click_bakeries
@@ -81,4 +81,19 @@ Test case 36
        # Click 'i' for product information  -old version
         Click_Product_for_product_information
         Close Browser
+
+Test case 6
+    #Click product, view product options and choose single/multiple product options
+        Open_MultishopHomePage
+        Click_bakeries
+        Change_CurrentLoction_BDP
+        Type_To_Search_bakery_with_Online_payment
+        Select_a_bakery_from_list
+       # Click 'i' for product information  -old version
+        Click_Product_for_product_information
+        Choose option from Single choice Product option
+        Choose option from Multiple choice Product option
+        PDP_Click_Checkout
+        Close Browser
+
 

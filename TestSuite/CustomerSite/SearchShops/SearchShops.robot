@@ -5,11 +5,12 @@ Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestS
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Credentials.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CustomerLogin/CustomerLoginKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CheckoutFunctionalities/CheckoutKeywords.robot
+Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CartFunctionalities/CartKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CustomerMyAccount/MyAccountKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/SearchShops/SearchShopsKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/ShopPage/ShopPageKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/HomePage/HomePageKeywords.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/Checkout/CouponsKeywords.robot
+Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CheckoutFunctionalities/CouponsKeywords.robot
 
 
 *** Test Cases ***
@@ -134,4 +135,22 @@ Test case 31
         Filter_by_OrderOnline
         Filter_by_NowOpen
         Filter_by_OrderOnline
+        Close Browser
+
+Test_case_32
+    #Guest User can search shop and suggest a shop and get a thankyou
+        Open_MultishopHomePage
+        Click_bakeries
+        Change_CurrentLoction_BDP
+        Type_To_Search_bakery_and_suggest_a_shop
+        Close Browser
+
+Test_case_33
+    #User can search shop and suggest a shop and get a thankyou
+        Open_MultishopHomePage
+        Click_login
+        EmailLogin
+        Click_bakeries
+        Change_CurrentLoction_BDP
+        Type_To_Search_bakery_and_suggest_a_shop
         Close Browser

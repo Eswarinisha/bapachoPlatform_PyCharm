@@ -60,6 +60,14 @@ Click_Product_for_product_information
          Click Element    ${producttitle}
          Capture Page Screenshot
 
+Choose option from Single choice Product option
+        Click Element   (//input[contains(@type,'radio')])[2]
+
+Choose option from Multiple choice Product option
+        Click Element   (//input[contains(@type,'checkbox')])[1]
+        Click Element   (//input[contains(@type,'checkbox')])[2]
+        Click Element   ${Addtocartproductlevel}
+
 Filter_Products_by_Category
         Capture Page Screenshot
         Click Element    ${filterproductbycategory}

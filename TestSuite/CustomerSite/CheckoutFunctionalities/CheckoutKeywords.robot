@@ -143,7 +143,7 @@ Click_Terms&Condition
 
 Click_T&C_Checkbox
          #Scroll Element Into View    //*[@id="paymentHolder"]/div[1]/label
-         Select Radio Button    ${paymentmethod}    ${paymentmethod2}
+         Select Radio Button    ${paymentmethod}    $${payment_method_cash}
          Page Should Contain Checkbox    ${T&C}
          Select Checkbox    ${T&C}
          Capture Element Screenshot    ${T&C}
@@ -151,7 +151,7 @@ Click_T&C_Checkbox
                       # My Account
 Check_T&C_NonHappy
          Set Focus To Element    //*[@id="paymentHolder"]/div[1]/label
-         Select Radio Button    ${paymentmethod}    ${paymentmethod1}
+         Select Radio Button    ${paymentmethod}    ${payment_method_card}
          Page Should Contain Checkbox    ${T&C}
         # Select Checkbox    //input[@id='terms']
          Click Button    ${btn_Submit_${Language}}
@@ -244,6 +244,7 @@ Click_back_while_Online_pay
         Click Element    ${clickback}
         Wait Until Page Contains    ${label_Order incomplete}
         Capture Page Screenshot
+        BuiltIn.Sleep    2
 
 Customer_Order_received_Mail
         Open Browser    http://gmail.com    ${Chrome}
@@ -272,8 +273,10 @@ Add_to_Calender
 
 
 SupportForm
+        Sleep   2
+        Page Should Contain Element     ${support}
         Click Element    ${support}
-        Set Browser Implicit Wait    10
+        Sleep   2
         SeleniumLibrary.Input Text    ${supportquestion}    "Test Automation - Test question"
         Capture Page Screenshot
         Click Element    ${submitsupportform}
