@@ -1,8 +1,8 @@
 *** Settings ***
 Library  SeleniumLibrary
 
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Variables.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Credentials.robot
+Resource    ShopPageInputs.robot
+Resource    ShopPageVariables.robot
 
 *** Keywords ***
 
@@ -70,6 +70,7 @@ Choose option from Multiple choice Product option
 
 Filter_Products_by_Category
         Capture Page Screenshot
+        Scroll Element Into View    ${filterproductbycategory}
         Click Element    ${filterproductbycategory}
         BuiltIn.Sleep    2
         Capture Page Screenshot

@@ -1,8 +1,7 @@
 *** Settings ***
 Library  SeleniumLibrary
 
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Variables.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Credentials.robot
+Resource    MyLocationVariables.robot
 
 *** Keywords ***
 
@@ -78,13 +77,13 @@ Add New Location
      Select Checkbox    ${OpeninghoursSetActive}
      Input Text    ${OpeninghoursStartingtime}      06:30
      Sleep    2
-     Click Element    ${OpeneninghoursEndtime}
+     Click Element    ${OpeninghoursEndtime}
      Sleep    2
-     Clear Element Text    ${OpeneninghoursEndtime}
+     Clear Element Text    ${OpeninghoursEndtime}
      Sleep    2
-     Press Keys    ${OpeneninghoursEndtime}     CTRL+a+BACKSPACE
-     Input Text    ${OpeneninghoursEndtime}    23:30
-     Press Keys    ${OpeneninghoursEndtime}      ENTER
+     Press Keys    ${OpeninghoursEndtime}     CTRL+a+BACKSPACE
+     Input Text    ${OpeninghoursEndtime}    23:30
+     Press Keys    ${OpeninghoursEndtime}      ENTER
      Sleep    2
      Click Element   ${AddOpeninghoursLunchbreak}
      Sleep    2
@@ -195,9 +194,9 @@ Open Location - my page
 
 View My locations
     Click Element    ${MyLocations}
+
 Manager View My locations
      Click Element    ${ManagerMyLocations}
-
 
 Filter location by Name
     Sleep    2

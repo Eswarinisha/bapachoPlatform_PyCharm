@@ -1,35 +1,31 @@
 *** Settings ***
 Library    SeleniumLibrary
 
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/MerchantSite/MerchantLogin/MerchantLoginKeywords.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/MerchantSite/Products/Products.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/MerchantSite/MyOrders/MyOrdersKeywords.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/MerchantSite/MyTeam/MyTeamKeywords.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Variables.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Credentials.robot
+Resource    MyLocationKeywords.robot
+Resource    MyLocationVariables.robot
+
+Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/MerchantSite/MerchantTestConditions.robot
 
 *** Test Cases ***
 
-Testcase 1
-#Refund and Partial Order
-    Open MultishopHomePage
+Testcase_1
+    #Add new Location
+    Open_MultishopHomePage_Merchant
     Login as MultishopMerchant
-    My Orders
-    Refund order
-    Partial Order Refund
+    Choose Plan
+    Add New Location
+    Open Location - my page
     Close Browser
 
-Testcase 2
-#Filter Location and Orders
-    Open MultishopHomePage
-    Login as Manager
-    Filter location by Name
-    Go Back
-    Filter location by Option
-    My Orders
-    Filter Orders by Period
-    Filter Orders by Location
-    Filter Orders by Status
-    Accept and view Order
+Testcase_2
+    #View my Locations
+    Open_MultishopHomePage_Merchant
+    Login as MultishopMerchant
+    View My locations
     Close Browser
+
+
+
+
+
      

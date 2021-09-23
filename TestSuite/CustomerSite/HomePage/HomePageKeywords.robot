@@ -1,12 +1,13 @@
 *** Settings ***
 Library  SeleniumLibrary
 
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Variables.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Credentials.robot
+Resource    HomePageInputs.robot
+Resource    HomePageVariables.robot
+Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/MerchantSite/MerchantTestConditions.robot
 
 *** Keywords ***
 
-Click_Download_App_playstore
+Click_Download_App-Playstore
         Scroll Element Into View    ${Appicon_playstore}
         Capture Page Screenshot
         Click Element    ${Appicon_playstore}
@@ -25,6 +26,7 @@ Click_Download_App-Appstore
 
 Click_bakeries
         Maximize Browser Window
+        BuiltIn.Sleep    2
         Click Element     ${btn_Bakeries_${Language}}
         BuiltIn.Sleep    2
 
@@ -37,7 +39,6 @@ Click_favourites
         BuiltIn.Sleep    2
 
 Guestuser_Click_favourites
-
          Click Element    ${guestclickfav}
          Capture Page Screenshot
          Wait Until Page Contains Element    ${Login_Button}
@@ -88,11 +89,12 @@ Open_your_shop
         Click Element    ${btn_SubmitCategory_${Language}}
         Capture Page Screenshot
 
+
    # FOOTER
 
 About_us
         Execute JavaScript    ${scrolldown}
-        Click Link   ${AboutUs_${Language}}
+        Click Link   ${AboutUs}
         BuiltIn.Sleep    2
         Capture Page Screenshot
 
@@ -108,16 +110,21 @@ Login_As_Merchant_Footer
         BuiltIn.Sleep    2
         Capture Page Screenshot
 
+Click_Logo_to_HomePage
+        BuiltIn.Sleep    2
+        Click Element   ${BapachoLOGO}
+        BuiltIn.Sleep    2
+
 Terms_and_Condition
         Execute JavaScript    ${scrolldown}
-        Click Link  ${T&C_${Language}}
+        Click Link  ${T&C}
         BuiltIn.Sleep    2
         Capture Page Screenshot
 
 
 Privacy_Statement
         Execute JavaScript    ${scrolldown}
-        Click Link     ${PrivacyStatement_${Language}}
+        Click Link     ${PrivacyStatement}
         BuiltIn.Sleep    2
         Capture Page Screenshot
 
@@ -129,14 +136,16 @@ FAQ
 
 Support_Footer
         Execute JavaScript    ${scrolldown}
+        BuiltIn.Sleep    2
+        Capture Page Screenshot
         Click Link     ${Supportfooter}
         BuiltIn.Sleep    2
 
 Support_Form_Footer
-        SeleniumLibrary.Input Text    ${support-fill in name}    Eswari Nisha
-        SeleniumLibrary.Input Text    ${support-fill in phone}    +31612809787
-        SeleniumLibrary.Input Text    ${support-fill in email}    nisha@inqadigital.com
-        SeleniumLibrary.Input Text    ${support-fill in comments}    "Test automation- Testing Support form in footer"
+        SeleniumLibrary.Input Text    ${support-fill in name}    ${support-fill in name_input}
+        SeleniumLibrary.Input Text    ${support-fill in phone}    ${support-fill in phone_input}
+        SeleniumLibrary.Input Text    ${support-fill in email}    ${support-fill in email_input}
+        SeleniumLibrary.Input Text    ${support-fill in comments}    ${support-fill in comments_input}
         Click Button   ${submitsupportform}
 
 Blog

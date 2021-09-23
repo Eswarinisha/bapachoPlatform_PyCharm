@@ -1,10 +1,13 @@
 *** Settings ***
 Library  SeleniumLibrary
 
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Variables.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Credentials.robot
+Resource    TestConditions.robot
+Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CustomerCredentials.robot
+Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/MerchantSite/MerchantCredentials.robot
+Resource    MerchantTestConditions.robot
+
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CustomerLogin/CustomerLoginKeywords.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CheckoutFunctionalities/CheckoutKeywords.robot
+Resource    Cart_CheckoutKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CartFunctionalities/CartKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CustomerMyAccount/MyAccountKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/SearchShops/SearchShopsKeywords.robot
@@ -16,7 +19,7 @@ Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestS
 *** Test Cases ***
     #FCS003    SEARCH
 
-Test case 20
+Testcase_1
     #Home Screen_User must be able to type the location to find his bakery needed
      Set Tags    Basic Regression
         Open_MultishopHomePage
@@ -25,15 +28,14 @@ Test case 20
         Capture Page Screenshot
         Close Browser
 
-
-Test case 21
+Testcase_2
     #Home Screen_On clicking on the arrow near the search tab, current location must be populated
 
         Open_MultishopHomePage
         Get_CurrrentLocation_Home
         Close Browser
 
-Test case 22
+Testcase_3
     #User must be able to search bakeries by name on the search bar
         Set Tags    Basic Regression
         Open_MultishopHomePage
@@ -42,7 +44,7 @@ Test case 22
         Type_To_Search_bakery_with_Online_payment
         Close Browser
 
-Test case 23
+Testcase_4
     #When no relevant result is available, "We're sorry, we couldn't find bakeries near you" messgae must be displayed
 
         Open_MultishopHomePage
@@ -51,7 +53,7 @@ Test case 23
         Type_to_search_bakery_nonhappy
         Close Browser
 
-Test case 24
+Testcase_5
     #User must be able to clear search by clicking on the X button
 
         Open_MultishopHomePage
@@ -61,14 +63,14 @@ Test case 24
         Clear_search_bakery_field
         Close Browser
 
-Test case 25
+Testcase_6
     #User must be able to use "Filter by Category" and get relevent result in the bakery listing page
         Open_MultishopHomePage
         Click_bakeries
         Filter_Bakeries_by_Category
         Close Browser
 
-Test case 26
+Testcase_7
     #User must be able to use filter "Range from my location" and get relevent result in the bakery listing page
         Set Tags    Basic Regression
         Open_MultishopHomePage
@@ -78,7 +80,7 @@ Test case 26
         Pass Execution    "Failure expected because of drag and drop offset but works as expected"
 
 
-Test case 27
+Testcase_8
     #User must be able to use filter deliver/pickup and get relevent result in the bakery listing page
         Set Tags    Basic Regression
         Open_MultishopHomePage
@@ -88,7 +90,7 @@ Test case 27
         Filter_by_Deliver
         Close Browser
 
-Test case 28
+Testcase_9
     #User must be able to use filter "other filter" and get relevent result in the bakery listing page
         Set Tags    Basic Regression
         Open_MultishopHomePage
@@ -98,7 +100,7 @@ Test case 28
         Filter_by_OrderOnline
         Close Browser
 
-Test case 29
+Testcase_10
     #User must be able to use one or many filters and get relevant result in the bakery listing page
         Set Tags    Basic Regression
         Open_MultishopHomePage
@@ -114,7 +116,7 @@ Test case 29
         Cashpay_OrderNow
         Close Browser
 
-Test case 30
+Testcase_11
     #User must be able to deselect Category filter and get relevent result in the bakery listing page
         Set Tags    Basic Regression
         Open_MultishopHomePage
@@ -123,7 +125,7 @@ Test case 30
         Unselect_Category_Filter
         Close Browser
 
-Test case 31
+Testcase_12
     #User must be able to remove the filters and all the result must be reset
 
         Open_MultishopHomePage
@@ -137,7 +139,7 @@ Test case 31
         Filter_by_OrderOnline
         Close Browser
 
-Test_case_32
+Testcase_13
     #Guest User can search shop and suggest a shop and get a thankyou
         Open_MultishopHomePage
         Click_bakeries
@@ -145,12 +147,12 @@ Test_case_32
         Type_To_Search_bakery_and_suggest_a_shop
         Close Browser
 
-Test_case_33
+Testcase_14
     #User can search shop and suggest a shop and get a thankyou
         Open_MultishopHomePage
         Click_login
         EmailLogin
         Click_bakeries
         Change_CurrentLoction_BDP
-        Type_To_Search_bakery_and_suggest_a_shop
+        Type_To_Search_bakery_and_suggest_a_shop_byLoggedinCustomer
         Close Browser

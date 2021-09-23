@@ -2,6 +2,7 @@
 
 Library     DatabaseLibrary
 Library     OperatingSystem
+
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/MerchantSite/MerchantLogin/MerchantLoginKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/MerchantSite/Products/ProductsKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Cred_Var/Bapacho_Credentials.robot

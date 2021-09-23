@@ -1,20 +1,19 @@
 *** Settings ***
 Library  SeleniumLibrary
 
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Variables.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Credentials.robot
+Resource    MyAccountKeywords.robot
+Resource    MyAccountVariables.robot
+
+Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/TestConditions.robot
+Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/HomePage/HomePageKeywords.robot'
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CustomerLogin/CustomerLoginKeywords.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CheckoutFunctionalities/CheckoutKeywords.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CartFunctionalities/CartKeywords.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CustomerMyAccount/MyAccountKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/SearchShops/SearchShopsKeywords.robot
 Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/ShopPage/ShopPageKeywords.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/HomePage/HomePageKeywords.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CheckoutFunctionalities/CouponsKeywords.robot
+Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/CustomerSite/CheckoutFunctionalities/Cart_CheckoutKeywords.robot
 
 *** Test Cases ***
 
-Test case 11
+Testcase_1
     #User must login to view on the Account icon & edit his details
     Set Tags    Basic Regression
        Open MultishopHomePage
@@ -24,7 +23,7 @@ Test case 11
        Edit_Mydetails
        Close Browser
 
-Test case 12
+Testcase_2
     #While placing order, all the information must be populated correctly after checkout
         Set Tags    Sanity
         Open MultishopHomePage
@@ -41,7 +40,7 @@ Test case 12
         Cashpay_OrderNow
         Close Browser
 
-Test case 13
+Testcase_3
     #User must be able to view his favorites bakery by clicking on the favorites icon <3
 
         Open MultishopHomePage
@@ -55,7 +54,7 @@ Test case 13
         View_favourites
         Close Browser
 
-Test case 14
+Testcase_4
     #User must be able to view Favorites from My Account
 
         Open MultishopHomePage
@@ -66,7 +65,7 @@ Test case 14
         View_MyFavorites
         Close Browser
 
-Test case 15
+Testcase_5
     #User can view his order history under My orders in My account
 
         Open MultishopHomePage
@@ -77,7 +76,7 @@ Test case 15
         View_MyOrders
         Close Browser
 
-Test case 16
+Testcase_6
     #User must be able to Download order confirmation for the selected order
 
         Open MultishopHomePage
@@ -89,7 +88,7 @@ Test case 16
         Download_OrderConfirmation
         Close Browser
 
-Test case 17
+Testcase_7
      #User must be able to click repeat order and place the same
 
         Open MultishopHomePage
@@ -101,7 +100,7 @@ Test case 17
         Repeat_Order
         Close Browser
 
-Test case 18
+Testcase_8
     #On clicking logout, user must be logged out of site
 
         Open MultishopHomePage
@@ -113,9 +112,9 @@ Test case 18
         Capture Page Screenshot
         Close Browser
 
-Test case 19
+Testcase_9
     #User must be able to login with another credentials
-    #CS010TC002	 #Login icon must appear in the header
+    #Login icon must appear in the header
         Open MultishopHomePage
         Click_login
         EmailLogin

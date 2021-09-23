@@ -1,8 +1,8 @@
 *** Settings ***
 Library  SeleniumLibrary
 
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Variables.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Credentials.robot
+Resource    ProductsVariables.robot
+Resource    ProductsInputs.robot
 
 *** Keywords ***
         #My Product Categories
@@ -12,11 +12,11 @@ Create new product category
      Click Element     ${AddCategory}
      BuiltIn.Sleep    2
      Run Keyword And Continue On Failure    Input Text    titles[nl]    Sweets
-     Run Keyword And Continue On Failure    Input Text    titles[be]    Sweets
+#     Run Keyword And Continue On Failure    Input Text    titles[be]    Sweets
      Run Keyword And Continue On Failure    Input Text    titles[it]    Sweets
-     Run Keyword And Continue On Failure    Input Text    titles[cz]    Sweets
-     Run Keyword And Continue On Failure    Input Text    titles[en]    Sweets
-     Run Keyword And Continue On Failure    Input Text    titles[ro]    Sweets
+#     Run Keyword And Continue On Failure    Input Text    titles[cz]    Sweets
+#     Run Keyword And Continue On Failure    Input Text    titles[en]    Sweets
+#     Run Keyword And Continue On Failure    Input Text    titles[ro]    Sweets
      # Run Keyword If    '${Language}'=='NL'     Input Text    titles[nl]    ${ProductCategoryName}
      # Run Keyword If    '${Language}'=='DE'     Input Text    titles[be]    ${ProductCategoryName}
      # Run Keyword If    '${Language}'=='IT' or 'EN'     Input Text    titles[it]    ${ProductCategoryName}
@@ -67,6 +67,7 @@ Create new own product
     Execute JavaScript    ${scrollup}
     Click Element    ${CopyfromEnglish}
     Capture Page Screenshot
+    Scroll Element Into View     ${choosecategoryname}
     Select From List By Label    ${choosecategoryname}      ${ProductCategoryName}
     Select From List By Value    ${feature product}      1
     Input Text    ${price}    ${PricewithVAT}

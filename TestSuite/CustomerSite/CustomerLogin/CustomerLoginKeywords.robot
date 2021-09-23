@@ -1,26 +1,11 @@
 *** Settings ***
 Library  SeleniumLibrary
 
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Variables.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Credentials.robot
+Resource    CustomerLoginVariables.robot
+Resource    CustomerCredentials.robot
 
 *** Keywords ***
                 # Home Page
-
-Open_Bapachosite
-        Open Browser   ${Multishop_URL_${Language}}     ${Chrome}
-        Change_CurrentLocation_Home
-
-Open_MultishopHomePage
-        Open Browser   ${Multishop_URL_${Language}}     ${Chrome}
-        Maximize Browser Window
-        Sleep    2
-        #Change_CurrentLocation_Home
-
-testhomepage
-        Open Browser   ${Multishop_URL_${Language}}     ${Chrome}
-        Maximize Browser Window
-
 login_Using_RegisteredMailid
         Set Browser Implicit Wait    5
         SeleniumLibrary.Input Text    ${emailid}    ${RegisterCredentialsnew}[0]
@@ -46,14 +31,12 @@ Click_login
        Capture Page Screenshot
 
 Click_FacebookLogin
-        Set Browser Implicit Wait    5
+        BuiltIn.Sleep    2
         Click Element     ${Login_using_Facebook}
 
 FacebookLogin
-        Click_login
-        Set Browser Implicit Wait    5
-        Click Element     ${Login_using_Facebook}
-        Run Keyword And Continue On Failure   Wait Until Page Contains    ${acceptcookieslabel}
+        Sleep   2
+        #Run Keyword And Continue On Failure   Wait Until Page Contains    ${acceptcookieslabel}
         Run Keyword And Continue On Failure      sleep    4
         Run Keyword And Continue On Failure       Click Button    ${fbcookiesaccept}
         SeleniumLibrary.Input Text      ${FBemailid}    ${FBCredentials}[0]
@@ -108,7 +91,7 @@ Click_ForgotPassword
         BuiltIn.Sleep    2
         SeleniumLibrary.Input Text      ${emailid}     ${RegisterCredentialsold}[0]
         Capture Page Screenshot
-        Click Button     ${btn_SubmitCategory_${Language}}
+        Click Button     ${btn_SubmitCategory_EN}
 
 ResetPassword
         Input Password    ${newpassword}      ${LoginCredentials}[1]
@@ -120,10 +103,10 @@ OpenGmailForgotpassword
         Open Browser    http://gmail.com    ${Chrome}
         Maximize Browser Window
         Sleep     4
-        Input Text    ${inputgmailid}    nisha@inqadigital.com
+        Input Text    ${inputgmailid}       ${gmailcredentials}[0]
         Click Element    ${gmailid_submit}
         Sleep    2
-        Input Password    ${inputgmailpassword}    Nishabalki@123
+        Input Password    ${inputgmailpassword}    ${gmailcredentials}[1]
         Sleep    2
         Click Element    ${gmailpwd_submit}
         Sleep    20
@@ -138,10 +121,10 @@ OpenGmailCustomer
         Open Browser    http://gmail.com    ${Chrome}
         Maximize Browser Window
         Sleep     4
-        Input Text    ${inputgmailid}    nisha@inqadigital.com
+        Input Text    ${inputgmailid}    ${gmailcredentials}[0]
         Click Element    ${gmailid_submit}
         Sleep    2
-        Input Password    ${inputgmailpassword}    Nishabalki@123
+        Input Password    ${inputgmailpassword}    ${gmailcredentials}[1]
         Sleep    2
         Click Element    ${gmailpwd_submit}
         Sleep    20
@@ -174,10 +157,10 @@ OpenGmailForgotPaasword
         Open Browser    http://gmail.com    ${Chrome}
         Maximize Browser Window
         Sleep     4
-        Input Text    ${inputgmailid}    nisha@inqadigital.com
+        Input Text    ${inputgmailid}    ${gmailcredentials}[0]
         Click Element    ${gmailid_submit}
         Sleep    2
-        Input Password    ${inputgmailpassword}    Nishabalki@123
+        Input Password    ${inputgmailpassword}    ${gmailcredentials}[1]
         Sleep    2
         Click Element    ${gmailpwd_submit}
         Sleep    20

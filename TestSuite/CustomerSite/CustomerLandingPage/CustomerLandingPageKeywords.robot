@@ -1,15 +1,12 @@
 *** Settings ***
 Library  SeleniumLibrary
 
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Variables.robot
-Resource    /Users/eswarinishabalakrishnan/PycharmProjects/bapachoPlatform/TestSuite/Resources/Bapacho_Credentials.robot
-
 *** Keywords ***
 
      #Landing Page
 
 Open_Landingpage
-       Open Browser   ${BapachoLangingpage_URL_${Language}}     ${Firefox}
+       Open Browser   ${BapachoLangingpage_URL_${Language}}     ${Chrome}
        Maximize Browser Window
        Capture Page Screenshot
 
